@@ -3,7 +3,7 @@
   "displayName": "NestJs Snippets",
   "description": "Code snippets for nestjs",
   "version": "1.0.0",
-  "repository": "https://github.com/rubiin/vscode-nestsjs-snippets",
+  "repository": "https://github.com/rubiin/vscode-nestjs-snippets",
   "publisher": "rubiin",
   "galleryBanner": {
     "color": "#E5254E",
