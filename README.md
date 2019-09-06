@@ -70,3 +70,8 @@ Contributions are highly welcome
 
 
  
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/rubiin/vscode-nestjs-snippets/badge.svg?style=beer-square)](https://beerpay.io/rubiin/vscode-nestjs-snippets)  [![Beerpay](https://beerpay.io/rubiin/vscode-nestjs-snippets/make-wish.svg?style=flat-square)](https://beerpay.io/rubiin/vscode-nestjs-snippets?focus=wish)
