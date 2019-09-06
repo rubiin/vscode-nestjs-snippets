@@ -38,6 +38,7 @@ Nest Module                             | n-module                      | NestJS
 Nest Global Module                      | n-module-global               | NestJS Global Module                                          | 
 Nest Middleware                         | n-middleware                  | NestJS Middleware                                             | 
 Nest Pipe                               | n-pipe                        | NestJS Pipe                                                   | 
+Nest Custom Decorator                   | n-decorator                   | NestJS custom decirator                                       | 
 Nest TypeORM Entity                     | n-typeorm-entity              | NestJS TypeORM Entity                                         | 
 Nest TypeORM Repository                 | n-typeorm-repository          | NestJS TypeORM Repository                                     | 
 

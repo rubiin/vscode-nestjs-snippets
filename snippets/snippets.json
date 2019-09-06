@@ -60,6 +60,32 @@
       "export class ${3:Application}Module {${0}};"
     ]
   },
+ "Nest Dynamic Module": {
+    "prefix": "n-dynamic-module",
+    "description": "NestJS Dynamic Module Implementing NestModule",
+    "body": [
+      "import { Module, NestModule } from '@nestjs/common';",
+      "import { ${1}MyLibService } from './${2}.service';",
+      "",
+      "@Module({})",
+      "export class MyModule {",
+      "\tstatic register(options): DynamicModule {",
+      "\t\treturn {",
+       "\t\t\tmodule: MyModule,",
+      "\t\tproviders: [",
+      "\t\t\t{",
+       "\t\t\tprovide: MyLibService,",
+       "\t\t\tuseValue: new MyLibService(options),",
+        "\t}",
+      "\t\t],",
+      "\t\texports: [",
+       "\t\t\tMyLibService,",
+      "\t\t]",
+    "\t};",
+  "\t}",
+   "}",
+    ]
+  },
   "Nest NestModule": {
     "prefix": "n-module-nest",
     "description": "NestJS Module Implementing NestModule",
@@ -315,6 +341,59 @@
       "export const ${1:Decorator} = createParamDecorator((data, req) => {",
       "    return ${0:value};",
       "  });"
+    ]
+  },
+  "Nest Custom Exception": {
+    "prefix": "n-exception",
+    "description": "NestJs Custom Exception",
+    "body": [
+      "import { HttpException , HttpStatus } from '@nestjs/common';",
+      "",
+      "export class ${1}Exception extends HttpException {",
+      "\tconstructor() {",
+      "\t\tsuper('Forbidden', HttpStatus.FORBIDDEN);"
+      "}"
+      "",
+      "}"
+    ]
+  },
+ "Nest Custom Logger": {
+    "prefix": "n-logger",
+    "description": "NestJs Custom Logger",
+    "body": [
+      "import { Logger } from '@nestjs/common';",
+      "",
+      "export class ${1}Logger extends Logger {",
+      "\terror(message: string, trace: string) {",
+      "\t\tsuper.error(message, trace);",
+      "",
+      "\t}",
+      "}"
+    ]
+  },
+ "Nest Jwt Implementation": {
+    "prefix": "n-jwt",
+    "description": "NestJs Jwt Implementation",
+    "body": [
+        "import { ExtractJwt, Strategy } from 'passport-jwt';",
+        "import { PassportStrategy } from '@nestjs/passport';",
+        "import { Injectable } from '@nestjs/common';",
+        "import { jwtConstants } from '<YOUR CONFIG FILE>';"
+        "",
+        "@Injectable()",
+        "export class JwtStrategy extends PassportStrategy(Strategy) {",
+        "\tconstructor() {",
+        "\t\tsuper({",
+        "\t\t\tjwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),",
+        "\t\t\tignoreExpiration: false,",
+        "\t\t\tsecretOrKey: jwtConstants.secret,",
+        "\t});",
+         "}",
+
+        "\tasync validate(payload: any) {",
+         "\t\treturn { userId: payload.sub, username: payload.username };",
+        "\t}",
+        "}"
     ]
   },
   "Nest TypeORM Entity": {
