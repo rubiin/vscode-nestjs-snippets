@@ -1,16 +1,15 @@
 {
   "name": "nestjs",
-  "displayName": "Vscode NestJs Snippets",
+  "displayName": "NestJs Snippets",
   "description": "Code snippets for nestjs",
-  "version": "1.3.0",
-  "repository": "https://github.com/ashinzekene/vscode-nestsjs-snippets",
-  "publisher": "ashinzekene",
+  "version": "1.0.0",
+  "repository": "https://github.com/rubiin/vscode-nestsjs-snippets",
+  "publisher": "rubiin",
   "galleryBanner": {
     "color": "#E5254E",
     "theme": "dark"
   },
   "scripts": {
-    "vscode:prepublish": "node scripts/readme-gen && node scripts/clog"
   },
   "engines": {
     "vscode": "^1.17.0"
