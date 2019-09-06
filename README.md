@@ -15,7 +15,7 @@
 
 ## Screenshot
 
-![Usage](img.gif)
+![Usage](https://raw.githubusercontent.com/rubiin/vscode-nestjs-snippets/master/img.gif)
 
 ## Usage
 Snippet                       |Prefix               | Purpose                                   |
