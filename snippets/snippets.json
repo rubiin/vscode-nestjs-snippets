@@ -305,6 +305,18 @@
       "}"
     ]
   },
+   "Nest Custom Decorator": {
+    "prefix": "n-decorator",
+    "description": "NestJS custom decirator",
+    "body": [
+      "import { createParamDecorator } from '@nestjs/common';",
+      "",
+      "@Injectable()",
+      "export const ${1:Decorator} = createParamDecorator((data, req) => {",
+      "    return ${0:value};",
+      "  });"
+    ]
+  },
   "Nest TypeORM Entity": {
     "prefix": "n-typeorm-entity",
     "description": "NestJS TypeORM Entity",
