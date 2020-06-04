@@ -168,6 +168,30 @@
       "});"
     ]
   },
+  "Nest Service Unit Test": {
+    "prefix": "n-test-service",
+    "description": "NestJS Service Unit Test",
+    "body": [
+      "import { Test } from '@nestjs/testing';",
+      "import { ${1}Service } from './${2}.service';",
+      "",
+      "describe('${1} Test suite', () => {",
+      "\tlet ${2}Service: ${1}Service;",
+      "",
+      "\tbeforeEach(async () => {",
+      "\t\tconst module = await Test.createTestingModule({",
+      "\t\t\tproviders: [${1}Service],",
+      "\t\t}).compile();",
+      "",
+      "\t\t${2}Service = module.get<${1}Service>(${1}Service);",
+      "\t});",
+      "",
+      "\tit('should be defined', () => {",
+      "\t\texpect(${2}Service).toBeDefined();",
+      "\t});",
+      "});"
+    ]
+  },
   "Nest Sequelize Entity": {
     "prefix": "n-sequelize-entity",
     "description": "NestJS Sequelize Entity",
@@ -351,9 +375,9 @@
       "",
       "export class ${1}Exception extends HttpException {",
       "\tconstructor() {",
-      "\t\tsuper('Forbidden', HttpStatus.FORBIDDEN);"
-      "}"
+      "\t\tsuper('Forbidden', HttpStatus.FORBIDDEN);",
       "",
+      "}",
       "}"
     ]
   },
@@ -378,7 +402,7 @@
         "import { ExtractJwt, Strategy } from 'passport-jwt';",
         "import { PassportStrategy } from '@nestjs/passport';",
         "import { Injectable } from '@nestjs/common';",
-        "import { jwtConstants } from '<YOUR CONFIG FILE>';"
+        "import { jwtConstants } from '<YOUR CONFIG FILE>';",
         "",
         "@Injectable()",
         "export class JwtStrategy extends PassportStrategy(Strategy) {",
@@ -425,6 +449,123 @@
       "\tfindByName(clientName: string) {",
       "\t\treturn this.findOne({ where: {clientName} });",
       "\t}",
+      "}",
+      ""
+    ]
+  },
+  "Nest Crud Controller": {
+    "scope": "typescript",
+    "prefix": "n-crud-con",
+    "description": "Adds All HTTP Methods",
+    "body": [
+      "import { Controller, Get, Param, Put, Body, Post, Delete } from '@nestjs/common';",
+      "import {${1:Name}Entity} from './${2:name}.entity';",
+      "",
+      "@Controller('${2:name}')",
+      "export class ${1:Name}Controller {",
+      "\t@Get()",
+      "\tgetMany(): Promise<${1:Name}Entity[]> {",
+      "\t\treturn ${1:Name}Entity.find();",
+      "\t}",
+      "",
+      "\t@Get(':id')",
+      "\tgetOne(@Param('id') id: number): Promise<${1:Name}Entity> {",
+      "\t\treturn ${1:Name}Entity.findOne(id);",
+      "\t}",
+      "",
+      "\t@Post()",
+      "\tcreateOne(@Body() dto: ${1:Name}Entity): Promise<${1:Name}Entity> {",
+      "\t\treturn ${1:Name}Entity.save(dto);",
+      "\t}",
+      "",
+      "\t@Put(':id')",
+      "\tupdateOne(",
+      "\t\t@Param('id') id: number,",
+      "\t\t@Body() dto: ${1:Name}Entity,",
+      "\t) {",
+      "\t\tdto.id = id;",
+      "",
+      "\t\treturn ${1:Name}Entity.save(dto);",
+      "\t}",
+      "",
+      "\t@Delete(':id')",
+      "\tasync deleteOne(",
+      "\t\t@Param('id') id: number,",
+      "\t): Promise<${1:Name}Entity> {",
+      "\t\tconst dto = await ${1:Name}Entity.findOne(id);",
+      "",
+      "\t\treturn ${1:Name}Entity.remove(dto);",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "Nest Put Request": {
+    "scope": "typescript",
+    "prefix": "n-put",
+    "description": "Adds Put HTTP Methods",
+    "body": [
+      "",
+      "@Put(':id')",
+      "updateOne(",
+      "\t@Param('id') id: number,",
+      "\t@Body() dto: ${1:Name}Entity,",
+      ") {",
+      "\tdto.id = id;",
+      "",
+      "\treturn ${1:Name}Entity.save(dto);",
+      "}",
+      ""
+    ]
+  },
+  "Nest Get Many Request": {
+    "scope": "typescript",
+    "description": "Adds Get HTTP Method",
+    "prefix": "n-get-many",
+    "body": [
+      "@Get()",
+      "getMany(): Promise<${1:Name}Entity[]> {",
+      "\treturn ${1:Name}Entity.find();",
+      "}",
+      ""
+    ]
+  },
+  "Nest Get One Request": {
+    "scope": "typescript",
+    "description": "Adds Get for Single Id",
+    "prefix": "n-get",
+    "body": [
+      "@Get(':id')",
+      "getOne(@Param('id') id: number): Promise<${1:Name}Entity> {",
+      "\treturn ${1:Name}Entity.findOne(id);",
+      "}",
+      ""
+    ]
+  },
+  "Nest Post Request": {
+    "scope": "typescript",
+    "description": "Adds Post HTTP Method",
+    "prefix": "n-post",
+    "body": [
+      "@Post()",
+      "createOne(@Body() dto: ${1:Name}Entity): Promise<${1:Name}Entity> {",
+      "\treturn ${1:Name}Entity.save(dto);",
+      "}",
+      ""
+    ]
+  },
+  "Nest Delete Request": {
+    "scope": "typescript",
+    "description": "Adds Delete HTTP Method",
+    "prefix": "n-delete",
+    "body": [
+      "@Delete(':id')",
+      "async deleteOne(",
+      "\t@Param('id') id: number,",
+      "): Promise<${1:Name}Entity> {",
+      "\tconst dto = await ${1:Name}Entity.findOne(id);",
+      "",
+      "\treturn ${1:Name}Entity.remove(dto);",
       "}",
       ""
     ]
