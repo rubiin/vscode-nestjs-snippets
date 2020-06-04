@@ -66,7 +66,7 @@ Contributions are highly welcome
 
 ## Release Notes
 
-## 1.0.0 - 06-09-2019
+## 1.3.0 - 06-09-2019
 
 
  
