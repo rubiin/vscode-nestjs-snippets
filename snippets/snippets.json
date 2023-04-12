@@ -15,38 +15,6 @@
       "}"
     ]
   },
-  "Nest v4 Middlware": {
-    "prefix": "n-v4-middleware",
-    "description": "NestJS Middleware Version 4",
-    "body": [
-      "import { Middleware, NestMiddleware, ExpressMiddleware } from '@nestjs/common';",
-      "",
-      "@Middleware()",
-      "export class ${1}Middleware implements NestMiddleware {",
-      "\tresolve(...args: any[]): ExpressMiddleware {",
-      "\t\treturn (req, res, next) => {",
-      "\t\t\t${0}",
-      "\t\t\tnext();",
-      "\t\t};",
-      "\t}",
-      "}"
-    ]
-  },
-  "Nest v4 Module": {
-    "prefix": "n-v4-module",
-    "description": "NestJS Module v4",
-    "body": [
-      "import { Module } from '@nestjs/common';",
-      "import { ${1}Controller } from './${2}.controller';",
-      "import { ${1}Service } from './${2}.service';",
-      "",
-      "@Module({",
-      "\tcontrollers: [${1}Controller],",
-      "\tcomponents:[${1}Service],",
-      "})",
-      "export class ${1}Module {${0}};"
-    ]
-  },
   "Nest Root Module": {
     "prefix": "n-module-root",
     "description": "NestJS Root Module",
@@ -60,7 +28,7 @@
       "export class ${3:Application}Module {${0}};"
     ]
   },
- "Nest Dynamic Module": {
+  "Nest Dynamic Module": {
     "prefix": "n-dynamic-module",
     "description": "NestJS Dynamic Module Implementing NestModule",
     "body": [
@@ -355,7 +323,7 @@
       "}"
     ]
   },
-   "Nest Custom Decorator": {
+  "Nest Custom Decorator": {
     "prefix": "n-decorator",
     "description": "NestJS custom decirator",
     "body": [
@@ -381,7 +349,7 @@
       "}"
     ]
   },
- "Nest Custom Logger": {
+  "Nest Custom Logger": {
     "prefix": "n-logger",
     "description": "NestJs Custom Logger",
     "body": [
@@ -395,29 +363,28 @@
       "}"
     ]
   },
- "Nest Jwt Implementation": {
+  "Nest Jwt Implementation": {
     "prefix": "n-jwt",
     "description": "NestJs Jwt Implementation",
     "body": [
-        "import { ExtractJwt, Strategy } from 'passport-jwt';",
-        "import { PassportStrategy } from '@nestjs/passport';",
-        "import { Injectable } from '@nestjs/common';",
-        "import { jwtConstants } from '<YOUR CONFIG FILE>';",
-        "",
-        "@Injectable()",
-        "export class JwtStrategy extends PassportStrategy(Strategy) {",
-        "\tconstructor() {",
-        "\t\tsuper({",
-        "\t\t\tjwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),",
-        "\t\t\tignoreExpiration: false,",
-        "\t\t\tsecretOrKey: jwtConstants.secret,",
-        "\t});",
-         "}",
-
-        "\tasync validate(payload: any) {",
-         "\t\treturn { userId: payload.sub, username: payload.username };",
-        "\t}",
-        "}"
+      "import { ExtractJwt, Strategy } from 'passport-jwt';",
+      "import { PassportStrategy } from '@nestjs/passport';",
+      "import { Injectable } from '@nestjs/common';",
+      "import { jwtConstants } from '<YOUR CONFIG FILE>';",
+      "",
+      "@Injectable()",
+      "export class JwtStrategy extends PassportStrategy(Strategy) {",
+      "\tconstructor() {",
+      "\t\tsuper({",
+      "\t\t\tjwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),",
+      "\t\t\tignoreExpiration: false,",
+      "\t\t\tsecretOrKey: jwtConstants.secret,",
+      "\t});",
+      "}",
+      "\tasync validate(payload: any) {",
+      "\t\treturn { userId: payload.sub, username: payload.username };",
+      "\t}",
+      "}"
     ]
   },
   "Nest TypeORM Entity": {
@@ -568,6 +535,67 @@
       "\treturn ${1:Name}Entity.remove(dto);",
       "}",
       ""
+    ]
+  },
+  "Nest Cron": {
+    "prefix": "n-cron",
+    "body": "import { Injectable, Logger } from '@nestjs/common';\nimport { Cron } from '@nestjs/schedule';\n\n@Injectable()\nexport class ${1:Name}Service {\n\tprivate readonly logger = new Logger(${1:Name}Service.name);\n\n\t@Cron('45 * * * * *')\n\thandleCron() {\n\t\tconsole.log('Called when the current second is 45');\n\t}\n}",
+    "description": "Create new task class with cron method for NestJS"
+  },
+  "Nest CQRS Query": {
+    "prefix": "n-cqrs-query",
+    "description": "NestJS CQRS Query",
+    "body": [
+      "import { IQuery } from '@nestjs/cqrs';",
+      "",
+      "export class ${1}Query implements IQuery {",
+      "\tconstructor(public readonly args: ${2}Dto) {}",
+      "}"
+    ]
+  },
+  "Nest CQRS Query Handler": {
+    "prefix": "n-cqrs-query-handler",
+    "description": "NestJS CQRS Query Handler",
+    "body": [
+      "import { QueryHandler, IQueryHandler } from '@nestjs/cqrs';",
+      "import { ${1}Query } from '../impl';",
+      "",
+      "@QueryHandler(${1}Query)",
+      "export class ${1}Handler implements IQueryHandler<${1}Query> {",
+      "\tconstructor() {}",
+      "",
+      "\tasync execute(command: ${1}Query) {",
+      "\t\treturn 'Hello :)';",
+      "\t}",
+      "}"
+    ]
+  },
+  "Nest CQRS Command": {
+    "prefix": "n-cqrs-command",
+    "description": "NestJS CQRS Command",
+    "body": [
+      "import { ICommand } from '@nestjs/cqrs';",
+      "",
+      "export class ${1}Command implements ICommand {",
+      "\tconstructor(public readonly args: ${2}Dto) {}",
+      "}"
+    ]
+  },
+  "Nest CQRS Command Handler": {
+    "prefix": "n-cqrs-command-handler",
+    "description": "NestJS CQRS Command Handler",
+    "body": [
+      "import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';",
+      "import { ${1}Command } from '../impl';",
+      "",
+      "@CommandHandler(${1}Command)",
+      "export class ${1}Handler implements ICommandHandler<${1}Command> {",
+      "\tconstructor() {}",
+      "",
+      "\tasync execute(command: ${1}Command) {",
+      "\t\treturn 'Hello :)';",
+      "\t}",
+      "}"
     ]
   }
 }
