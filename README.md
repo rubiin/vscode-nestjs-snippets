@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg" height=100 alt="NESTJS" />
+  <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*mxX7vfPgKke5d3fV.png" height=100 alt="NESTJS" />
   <h1 align="center">NESTJS SNIPPETS FOR VSCODE</h1>
   <p align="center">Adds snippets common operations for working with nestjs in Vscode.</p>
 </p>

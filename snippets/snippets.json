@@ -597,5 +597,59 @@
       "\t}",
       "}"
     ]
+  },
+  "Nest single file upload": {
+    "prefix": "n-file-single",
+    "body": [
+      "@Post('upload')",
+      "@UseInterceptors(FileInterceptor('file'))",
+      "uploadFile(@UploadedFile() file: Express.Multer.File) {",
+      "  console.log(file);",
+      "}"
+    ],
+    "description": "Nest single file upload"
+  },
+  "Nest multiple file upload": {
+    "prefix": "n-file-multi",
+    "body": [
+      "@Post('upload')",
+      "@UseInterceptors(FilesInterceptor('files'))",
+      "uploadFile(@UploadedFiles() files: Array<Express.Multer.File>) {",
+      "  console.log(files);",
+      "}"
+    ],
+    "description": "Nest multiple file upload"
+  },
+  "Nest Mikrorm Entity": {
+    "prefix": "n-mikro-entity",
+    "description": "NestJS Mikroorm Entity",
+    "body": [
+      "import { Entity, PrimaryKey, Property } from '@mikro-orm/core';",
+      "",
+      "@Entity()",
+      "export class ${1} {",
+      "\t@PrimaryKey()",
+      "\tid: number;",
+      "",
+      "\t@Property()",
+      "\t${0}: string;",
+      "}",
+      ""
+    ]
+  },
+  "Nest Mikoorm Repository": {
+    "prefix": "n-mikroorm-repository",
+    "description": "NestJS Mikoorm Repository",
+    "body": [
+      "import { EntityRepository } from '@mikro-orm/postgres';",
+      "import { ${1} } from '../entity/${1}';",
+      "",
+      "export class ${1}Repository extends EntityRepository<${1}> {",
+      "\tfindByName(clientName: string) {",
+      "\t\treturn this.findOne({clientName});",
+      "\t}",
+      "}",
+      ""
+    ]
   }
 }
