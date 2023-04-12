@@ -2,13 +2,10 @@
 
 <p align="center">
 <a title="License MIT" href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="License MIT" /></a>
-<a title="Version" href="https://marketplace.visualstudio.com/items?itemName=rubiin.nestjs"><img src="https://vsmarketplacebadge.apphb.com/version-short/rubiin.nestjs.svg" alt="Version" /></a>
-<a title="Installs" href="https://marketplace.visualstudio.com/items?itemName=rubiin.nestjs"><img src="https://vsmarketplacebadge.apphb.com/installs/rubiin.nestjs.svg" alt="Installs" /></a>
-<a title="Ratings" href="https://marketplace.visualstudio.com/items?itemName=rubiin.nestjs"><img src="https://vsmarketplacebadge.apphb.com/rating/rubiin.nestjs.svg" alt="Ratings" /></a>
 </p>
 
 <p align="center">
-  <img src="https://github.com/rubiin/vscode-nestjs-snippets/blob/master/nestjs.jpg?raw=true" alt="NESTJS" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg" height=100 alt="NESTJS" />
   <h1 align="center">NESTJS SNIPPETS FOR VSCODE</h1>
   <p align="center">Adds snippets common operations for working with nestjs in Vscode.</p>
 </p>
