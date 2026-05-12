@@ -176,6 +176,27 @@
       "}"
     ]
   },
+  "NestJS Validation Class": {
+    "prefix": "n-dto",
+    "body": [
+      "import { IsString, IsNumber, IsNotEmpty, IsOptional } from 'class-validator';",
+      "",
+      "export class ${1:Item}ValidationDto {",
+      "  @IsString()",
+      "  @IsNotEmpty()",
+      "  readonly name: string;",
+      "",
+      "  @IsString()",
+      "  @IsOptional()",
+      "  readonly description?: string;",
+      "",
+      "  @IsNumber()",
+      "  @IsNotEmpty()",
+      "  readonly price: number;",
+      "}"
+    ],
+    "description": "Create a validation class using class-validator for a NestJS application"
+  },
   "Nest Sequelize Provider": {
     "prefix": "n-sequelize-provider",
     "description": "NestJS Sequelize Provider",
@@ -318,6 +339,9 @@
       "@Injectable()",
       "export class ${1:Validation}Pipe implements PipeTransform {",
       "  transform(value: any, metadata: ArgumentMetadata) {",
+      "    if (!value) {",
+      "      throw new BadRequestException('Validation failed');",
+      "    }",
       "    return ${0:value};",
       "  }",
       "}"
@@ -325,7 +349,7 @@
   },
   "Nest Custom Decorator": {
     "prefix": "n-decorator",
-    "description": "NestJS custom decirator",
+    "description": "NestJS custom decorator",
     "body": [
       "import { createParamDecorator } from '@nestjs/common';",
       "",
@@ -337,7 +361,7 @@
   },
   "Nest Custom Exception": {
     "prefix": "n-exception",
-    "description": "NestJs Custom Exception",
+    "description": "NestJS Custom Exception",
     "body": [
       "import { HttpException , HttpStatus } from '@nestjs/common';",
       "",

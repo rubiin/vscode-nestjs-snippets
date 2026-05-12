@@ -1,8 +1,8 @@
 {
   "name": "nestjs",
-  "displayName": "NestJs Snippets",
-  "description": "Code snippets for nestjs",
-  "version": "1.6.0",
+  "displayName": "NestJS Snippets",
+  "description": "Code snippets for NestJS",
+  "version": "1.7.0",
   "repository": "https://github.com/rubiin/vscode-nestjs-snippets",
   "publisher": "rubiin",
   "galleryBanner": {
@@ -11,13 +11,17 @@
   },
   "scripts": {},
   "engines": {
-    "vscode": "^1.17.0"
+    "vscode": "^1.67.0"
   },
-  "icon": "nestjs.jpg",
+  "icon": "./nestjs.jpg",
   "categories": [
+    "Programming Languages",
+    "Debuggers",
+    "Formatters",
+    "Linters",
     "Snippets"
   ],
-  "tags": [
+  "keywords": [
     "nestjs",
     "typescript",
     "node",
