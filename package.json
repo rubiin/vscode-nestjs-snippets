@@ -1,6 +1,6 @@
 {
   "name": "nestjs-snippets-vscode",
-  "displayName": "NestJS Snippets",
+  "displayName": "NestJS Snippets Vscode",
   "description": "Code snippets for NestJS",
   "version": "1.7.0",
   "repository": "https://github.com/rubiin/vscode-nestjs-snippets",
