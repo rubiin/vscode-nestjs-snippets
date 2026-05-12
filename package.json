@@ -9,11 +9,14 @@
     "color": "#E5254E",
     "theme": "dark"
   },
-  "scripts": {},
+  "scripts": {
+    "package": "npx vsce package",
+    "publish": "npx vsce publish"
+  },
   "engines": {
     "vscode": "^1.67.0"
   },
-  "icon": "./nestjs.jpg",
+  "icon": "nestjs.jpg",
   "categories": [
     "Programming Languages",
     "Debuggers",
